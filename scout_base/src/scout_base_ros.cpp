@@ -26,6 +26,7 @@ ScoutBaseRos::ScoutBaseRos(std::string node_name)
 
   this->declare_parameter("simulated_robot");
   this->declare_parameter("control_rate");
+  this->declare_parameter("publish_tf", false);
 
   LoadParameters();
 }
@@ -43,6 +44,7 @@ void ScoutBaseRos::LoadParameters() {
 
   this->get_parameter_or<bool>("simulated_robot", simulated_robot_, false);
   this->get_parameter_or<int>("control_rate", sim_control_rate_, 50);
+  this->get_parameter_or<bool>("publish_tf", publish_tf_, false);
 
   std::cout << "Loading parameters: " << std::endl;
   std::cout << "- port name: " << port_name_ << std::endl;
@@ -58,6 +60,7 @@ void ScoutBaseRos::LoadParameters() {
   std::cout << "- simulated robot: " << std::boolalpha << simulated_robot_
             << std::endl;
   std::cout << "- sim control rate: " << sim_control_rate_ << std::endl;
+  std::cout << "- publish tf: " << publish_tf_ << std::endl;
   std::cout << "----------------------------" << std::endl;
 }
 
