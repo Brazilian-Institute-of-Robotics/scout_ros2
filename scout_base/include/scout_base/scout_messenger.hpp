@@ -139,6 +139,7 @@ class ScoutMessenger {
 
   bool simulated_robot_ = false;
   int sim_control_rate_ = 50;
+  bool publish_tf_ = false;
 
   std::mutex twist_mutex_;
   geometry_msgs::msg::Twist current_twist_;
