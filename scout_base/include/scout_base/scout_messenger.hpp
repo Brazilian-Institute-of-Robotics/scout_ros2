@@ -186,7 +186,6 @@ class ScoutMessenger {
             std::lock_guard<std::mutex> guard(twist_mutex_);
             current_twist_ = *msg.get();
         }
-        // ROS_INFO("Cmd received:%f, %f", msg->linear.x, msg->angular.z);
     }
 
     template <typename T,
